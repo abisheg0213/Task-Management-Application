@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import {useForm} from "react-hook-form";
 import Axios from "axios";
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 import Header from "../header/Header";
 import Fotter from "../Footer/Fotter";
 import { format, parseISO } from 'date-fns';
@@ -46,26 +48,41 @@ export default function Landing(){
         <label>Priority</label><select {...register('priority')}><option>Priority 1</option><option>Priority 2</option><option>Priority 2</option></select>
         <br/><br/><input type="submit"></input>
         </form>
+        <center>
         {priority_1.map((data)=>{
             return <li>{data.task_name} - {data.task_desc} - {format(parseISO((data.task_due_date).toString()),'dd/MM/yyyy')} -{data.task_priority} </li>
         })}
         <hr/>
         {priority_2.map((data)=>{
-            return <li>{data.task_name} - {data.task_desc} - {format(parseISO((data.task_due_date).toString()),'dd/MM/yyyy')} -{data.task_priority} </li>
+            return  <Card style={{width:"500px",height:"175px"}}>
+            <Card.Header> Due - {format(parseISO((data.task_due_date).toString()),'dd/MM/yyyy')}</Card.Header>
+            <Card.Body>
+              <Card.Title>{data.task_name}</Card.Title>
+              <Card.Text>
+              {data.task_desc}
+              </Card.Text>
+              <Button variant="primary">Edit Task</Button>{"  "}
+              <Button variant="primary">Complete Task</Button>{"  "}
+              <Button variant="primary">Delete Task</Button>
+            </Card.Body>
+          </Card>
         })}
         <hr/>
         {priority_3.map((data)=>{
             return  <Card>
-            <Card.Header>{data.task_name}</Card.Header>
+            <Card.Header>{data.task_due_date}</Card.Header>
             <Card.Body>
-              <Card.Title>Special title treatment</Card.Title>
+              <Card.Title>{data.task_name}</Card.Title>
               <Card.Text>
               {data.task_desc}
               </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
+              <Button variant="primary">Edit Task</Button>{"  "}
+              <Button variant="primary">Complete Task</Button>{"  "}
+              <Button variant="primary">Delete Task</Button>
             </Card.Body>
           </Card>
         })}
-        <Fotter/>
+        </center>
+
     </div>
 }

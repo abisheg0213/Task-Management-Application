@@ -33,11 +33,15 @@ task_schema=mongoose.Schema({
     task_priority:{
         type:String,
         required:true
+    },
+    task_status:{
+        type:Boolean,
+        required:true
     }
 })
 task_model=mongoose.model('task',task_schema)
 app.get('/retrive_all_tasks',function(req,res){
-    task_model.find({}).then((data)=>{
+    task_model.find({task_status:false}).then((data)=>{
         res.send(data)
     })
 })
@@ -53,7 +57,8 @@ app.post('/add_new_task',function(req,res){
         task_name:req.body.name,
         task_desc:req.body.desc,
         task_due_date:req.body.date,
-        task_priority:req.body.priority
+        task_priority:req.body.priority,
+        task_status:false
     })
     data.save()
 })
@@ -62,3 +67,8 @@ app.delete('/delete_task',function(req,res){
         console.log(data)
     })
 })
+app.patch('/complete_task/:id',function(req,res){
+    console.log(req.params.id)
+    task_model.updateOne({task_id:req.params.id},{task_status:true}).then((data)=>{
+        console.log(data)
+    })})
