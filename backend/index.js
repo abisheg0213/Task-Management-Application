@@ -42,6 +42,7 @@ task_schema=mongoose.Schema({
 task_model=mongoose.model('task',task_schema)
 app.get('/retrive_all_tasks',function(req,res){
     task_model.find({task_status:false}).then((data)=>{
+        console.log(data)
         res.send(data)
     })
 })
@@ -69,6 +70,6 @@ app.delete('/delete_task',function(req,res){
 })
 app.patch('/complete_task/:id',function(req,res){
     console.log(req.params.id)
-    task_model.updateOne({task_id:req.params.id},{task_status:true}).then((data)=>{
+    task_model.updateOne({task_id:Number(req.params.id)},{task_status:true}).then((data)=>{
         console.log(data)
     })})
