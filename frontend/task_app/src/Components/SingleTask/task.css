@@ -7,3 +7,24 @@
     border-radius: 7px;
     box-shadow: 0 1px 5px rgb(138, 137, 137);
 }
+.task_box input{
+    width: 100%;
+    padding: 4px;
+    outline: none;
+    font-size: 1em;
+    font-family: 'Times New Roman';
+    resize: none;
+}
+.task_box textarea{
+    width: 100%;
+    padding: 4px;
+    outline: none;
+    font-size: 1em;
+    font-family: 'Times New Roman';
+    resize: none;
+}
+.alert{
+    font-size: small;
+    color: red;
+    font-style: italic;
+}

@@ -53,8 +53,10 @@ task_model.updateOne({task_id:req.params.id},req.body).then((data)=>{
 })
 })
 app.post('/add_new_task',function(req,res){
+    ts=Date.now()
+    let id_val=ts.toString().slice(-5,-1)
     data=new task_model({
-        task_id:(req.body.name).length+(req.body.desc).length+10,
+        task_id:Number(id_val),
         task_name:req.body.name,
         task_desc:req.body.desc,
         task_due_date:req.body.date,
@@ -75,3 +77,8 @@ app.patch('/complete_task/:id',function(req,res){
     task_model.updateOne({task_id:Number(req.params.id)},{task_status:true}).then((data)=>{
         console.log(data)
     })})
+app.get('/get_task_info/:id',function(req,res){
+    task_model.findOne({task_id:Number(req.params.id)}).then((data)=>{
+        res.send(data)
+    })
+})

@@ -59,7 +59,7 @@ export default function Landing(){
         <center>
         {priority_1.map((data)=>{
             return <div className="task1">
-            <h1>{data.task_name}</h1><hr/>
+            <h1>Task - {data.task_name}</h1><hr/>
             <p><strong>Due - {format(parseISO((data.task_due_date).toString()),'dd/MM/yyyy')}</strong></p>
             <button onClick={(e)=>
                 {
@@ -81,7 +81,7 @@ export default function Landing(){
 
         {priority_2.map((data)=>{
             return <div className="task2">
-            <h1>{data.task_name}</h1><hr/>
+            <h1>Task - {data.task_name}</h1><hr/>
             <p><strong>Due - {format(parseISO((data.task_due_date).toString()),'dd/MM/yyyy')}</strong></p>
             <button onClick={(e)=>
                 {
@@ -103,7 +103,7 @@ export default function Landing(){
 
         {priority_3.map((data)=>{
             return  <div className="task">
-                <h1>{data.task_name}</h1><hr/>
+                <h1>Task - {data.task_name}</h1><hr/>
                 <p><strong>Due - {format(parseISO((data.task_due_date).toString()),'dd/MM/yyyy')}</strong></p>
                 <button onClick={(e)=>
                 {
