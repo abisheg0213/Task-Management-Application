@@ -104,7 +104,7 @@ export default function Landing(){
         {priority_3.map((data)=>{
             return  <div className="task">
                 <h1>Task - {data.task_name}</h1><hr/>
-                <p><strong>Due - {format(parseISO((data.task_due_date).toString()),'dd/MM/yyyy')}</strong></p>
+                <p><strong>Due - {(data.task_due_date).toString().slice(0,10)}</strong></p>
                 <button onClick={(e)=>
                 {
                     e.preventDefault()
@@ -113,7 +113,7 @@ export default function Landing(){
             }>View</button> 
                 <button onClick={(e)=>{
                     e.preventDefault()
-                    Axios.patch('http://localhost:5000/complete_task/',{id:data.task_id})
+                    Axios.patch('http://localhost:5000/complete_task/'+data.task_id)
                     set_submit_count(submit_count+1)
                 }}>Complete</button> 
                 <button  onClick={(e)=>{

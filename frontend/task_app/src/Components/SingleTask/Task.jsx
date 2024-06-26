@@ -42,7 +42,7 @@ return <div>
         {errors.task_desc && errors.task_desc.type==="required" && <p className="alert"><strong>Task cannot be without description</strong></p>}
         <br/>
         
-        <p>Previous Date : {format(parseISO((task_data.task_due_date).toString()),'dd/MM/yyyy')}</p>
+        <p>Previous Date : {(task_data.task_due_date).toString().slice(0,10)}</p>
         <label>New Due Date : </label>
         <input type="date" {...register('task_due_date',{validate:(data)=>{
             const d=new Date()
@@ -56,7 +56,7 @@ return <div>
     : <div className="task_box">
     <p><strong>Task Title : </strong>{task_data.task_name}</p>
     <p><strong>Task Description :</strong> {task_data.task_desc}</p>
-    <p><strong>Task Due Date :</strong> {task_data.task_due_date}</p>
+    <p><strong>Task Due Date :</strong> {(task_data.task_due_date).toString().slice(0,10)}</p>
     <p><strong>Task Priority : </strong>{task_data.task_priority}</p>
     <center><button onClick={(e)=>{
         e.preventDefault()
