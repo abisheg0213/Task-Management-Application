@@ -63,8 +63,10 @@ app.post('/add_new_task',function(req,res){
     })
     data.save()
 })
-app.delete('/delete_task',function(req,res){
-    task_model.deleteOne({task_id:req.body.id}).then((data)=>{
+app.delete('/delete_task/:id',function(req,res){
+    console.log("delete ***")
+    console.log(req.params.id)
+    task_model.deleteOne({task_id:Number(req.params.id)}).then((data)=>{
         console.log(data)
     })
 })

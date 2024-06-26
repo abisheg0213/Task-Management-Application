@@ -5,7 +5,7 @@ export default function Header(){
     return  <Navbar  style={{background:"#35a29f"}}>
     <Container>
       <Navbar.Brand href="#home">
-        To-Do Management
+        Task Management
       </Navbar.Brand>
     </Container>
   </Navbar>
