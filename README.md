@@ -38,4 +38,4 @@
    
 Now the backend server will be running in localhost port 5000 and frontend can be accessed at localhost port 3000
 
-**The frontend application can be accessed at http://localhost:3000 (or) https://localhost:3000**
+**The frontend application can be accessed at http://localhost:3000/ (or) https://localhost:3000/**
