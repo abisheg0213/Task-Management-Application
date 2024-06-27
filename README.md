@@ -9,9 +9,9 @@
 
 => The Landing page also contains a form to submit a new Task by providing Task name, Description, task due date and task priority
 
-=> Each Task contains thre buttons
+=> Each Task contains three buttons
 
-    (i) View : To view to the detailed information about the task. It will redirect to task info page where detailed information about the task is provided with option toedit the details
+    (i) View : To view to the detailed information about the task. It will redirect to task info page where detailed information about the task is provided with option to edit the details
     
     (ii) Complete : To complete a specific Task
     
