@@ -4,8 +4,11 @@
 2. MongoDB server (Version 7 is used in this project)
 
 **Features of the Project :**
+
 => The Front end has an landing page with all the tasks colored based on their priority
+
 => The Landing page also contains a form to submit a new Task by providing Task name, Description, task due date and task priority
+
 => Each Task contains thre buttons 
     (i) View : To view to the detailed information about the task. It will redirect to task info page where detailed information about the task is provided with option toedit the details
     (ii) Complete : To complete a specific Task
